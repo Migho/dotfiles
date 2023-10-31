@@ -1,0 +1,206 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* import css definitions for current theme */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@keyframes blink-warning {
+  70% {
+    color: @wm_icon_bg;
+  }
+
+  to {
+    color: @wm_icon_bg;
+    background-color: @warning_color;
+  }
+}
+
+@keyframes blink-critical {
+  70% {
+    color: @wm_icon_bg;
+  }
+
+  to {
+    color: @wm_icon_bg;
+    background-color: @error_color;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "RobotoMono Nerd Font", "Roboto Mono", sans-serif;
+}
+
+/* The whole bar */
+window#waybar {
+  /* background: #141a1b; */
+  background-color: rgba(14, 20, 21, 0.75);
+  color: #eeeeee;
+  font-size: 14px;
+}
+
+/* Each module */
+#custom-pacman,
+#custom-menu,
+#custom-help,
+#custom-scratchpad,
+#custom-github,
+#custom-clipboard,
+#custom-zeit,
+#custom-dnd,
+#bluetooth,
+#battery,
+#clock,
+#cpu,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#idle_inhibitor,
+#backlight,
+#language,
+#custom-adaptive-light,
+#custom-sunset,
+#custom-playerctl,
+#tray {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#custom-scratchpad,
+#custom-menu,
+#workspaces button.focused,
+#clock {
+  /* color: #141a1b;
+  background-color: #eeeeee; */
+}
+
+#custom-zeit.tracking {
+  background-color: #eeeeee;
+}
+
+#battery {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.warning {
+  color: #e2e600;
+}
+
+#battery.critical {
+  color: #e60000;
+}
+
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+#clock {
+  font-weight: bold;
+}
+
+#cpu.warning {
+  color: #e2e600;
+}
+
+#cpu.critical {
+  color: #e60000;
+}
+
+#custom-menu {
+  padding-left: 8px;
+  padding-right: 13px;
+}
+
+#memory {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#memory.warning {
+  color: #e2e600;
+}
+
+#memory.critical {
+  color: #e60000;
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+#mode {
+  background: #eeeeee;
+}
+
+#network.disconnected {
+  color: #e2e600;
+}
+
+#pulseaudio.muted {
+  color: #e2e600;
+}
+
+#temperature.critical {
+  color: #e60000;
+}
+
+#workspaces button {
+  border-top: 2px solid transparent;
+  /* To compensate for the top border and still have vertical centering */
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #eeeeee;
+}
+
+#workspaces button.focused {
+  border-color: #eeeeee;
+}
+
+#workspaces button.urgent {
+  border-color: #e60000;
+  color: #e60000;
+}
+
+#custom-pacman {
+  color: #e2e600;
+}
+
+#bluetooth.disabled {
+  color: #e2e600;
+}
+
+#custom-wf-recorder {
+  color: #e60000;
+  padding-right: 10px;
+}

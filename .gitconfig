@@ -1,0 +1,7 @@
+[credential]
+	helper = cache --timeout=604800
+[user]
+	email = mikkojrh@gmail.com
+	name = Mikko Rinta-Homi
+[push]
+	autoSetupRemote = true
